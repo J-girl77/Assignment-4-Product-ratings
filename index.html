@@ -1,30 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product ratings dashboard</title>
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Ratings Dashboard</title>
+    <meta name="description" content="A dashboard that visualizes product ratings from the Fake Store API using Highcharts.">
+    <link rel="stylesheet" href="style.css">
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-  </head>
-
-    <body>
-     <header>
+</head>
+<body>
+    <header>
         <h1>Product Ratings Dashboard</h1>
         <p>
             This dashboard fetches product data from the
             <a href="https://fakestoreapi.com/products" target="_blank" rel="noopener noreferrer">Fake Store API</a>
             and visualizes the ratings in two different ways.
         </p>
-     </header>
- 
+    </header>
+
     <main>
+        <div id="status" role="status" aria-live="polite">Loading product data…</div>
 
+        <section aria-labelledby="chart1-title">
+            <h2 id="chart1-title">Average Rating by Category</h2>
+            <div id="chart-category" class="chart-container"
+                 role="img"
+                 aria-label="Column chart showing the average product rating for each category."></div>
+            <p class="chart-description">
+                This column chart shows the average customer rating (from 0 to 5) for each product category.
+                It helps identify which categories tend to have the most highly rated products.
+            </p>
+        </section>
 
+        <section aria-labelledby="chart2-title">
+            <h2 id="chart2-title">Rating Distribution</h2>
+            <div id="chart-distribution" class="chart-container"
+                 role="img"
+                 aria-label="Pie chart showing how products are distributed across rating ranges."></div>
+            <p class="chart-description">
+                This pie chart groups every product by its rating into four ranges
+                (below 3, 3–3.9, 4–4.4, and 4.5 or higher) so you can see how ratings are
+                distributed across the whole catalog.
+            </p>
+        </section>
     </main>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>Data source: Fake Store API. Charts rendered with Highcharts.</p>
+    </footer>
 
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>
