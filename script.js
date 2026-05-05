@@ -1,15 +1,8 @@
-v
-// Product Ratings Dashboard - simplified beginner version.
-// Fetches products from the Fake Store API and renders two charts.
-
 const statusEl = document.getElementById("status");
-
-// Fetch the data, then build the charts.
 fetch("https://fakestoreapi.com/products")
     .then(response => response.json())
     .then(products => {
         statusEl.style.display = "none";
-        /
         const categoryData = buildCategoryData(products);
         const distributionData = buildDistributionData(products);
 
